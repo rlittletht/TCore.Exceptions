@@ -24,12 +24,6 @@ namespace TCore.Exceptions
             m_sMessage = String.Format(sMessage, rgo);
         }
 
-        public TcException(Guid crids, string sMessage, params object[] rgo)
-        {
-            m_crids = crids;
-            m_sMessage = String.Format(sMessage, rgo);
-        }
-
         public TcException(string sMessage, params object[] rgo)
         {
             m_sMessage = String.Format(sMessage, rgo);
