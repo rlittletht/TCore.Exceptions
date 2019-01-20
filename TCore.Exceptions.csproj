@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+      <TargetFramework>net45</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ProjectGuid>{CC88C933-98AF-4C54-832A-1C4F587AAA54}</ProjectGuid>
+    <PackageId>TCore.Exceptions</PackageId>
+    <Authors>Robert Little</Authors>
+    <Company>Robert Little</Company>
+    <Product>TCore.Exceptions</Product>
+    <Description>Provides a basic exception object with corellation ID support</Description>
+    <RepositoryUrl>https://github.com/rlittletht/TCore.Exceptions</RepositoryUrl>
+    <PackageLicenseUrl>https://github.com/rlittletht/TCore.Exceptions/blob/master/LICENSE</PackageLicenseUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup  Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PackageReference Include="NUnit" Version="3.11.0" />
+  </ItemGroup>
+</Project>
