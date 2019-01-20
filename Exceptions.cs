@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+#if DEBUG
 using NUnit.Framework;
+#endif
 
 namespace TCore.Exceptions
 {
@@ -38,6 +36,7 @@ namespace TCore.Exceptions
 
         public Guid Crids => m_crids;
 
+#if DEBUG
         [Test]
         public static void TestTwException()
         {
@@ -50,6 +49,7 @@ namespace TCore.Exceptions
                 Assert.AreEqual("Should be caught", exc.Message);
                 }
         }
+#endif
     }
 
 }
