@@ -5,34 +5,46 @@ using NUnit.Framework;
 
 namespace TCore.Exceptions
 {
+    class TcErrorMessages
+    {
+        public const string Unknown = "Unknown exception";
+    }
+
     public class TcException : Exception
     {
         private Guid m_crids;
-        private string m_sMessage;
 
-        public TcException(Exception exc)
+        public TcException(Exception exc) : base(exc.Message)
         {
             m_crids = Guid.Empty;
-            m_sMessage = exc.Message;
         }
 
-        public TcException(Guid crids, string sMessage, params object[] rgo)
+        public TcException(Guid crids) : base(TcErrorMessages.Unknown)
         {
             m_crids = crids;
-            m_sMessage = String.Format(sMessage, rgo);
         }
 
-        public TcException(string sMessage, params object[] rgo)
+        public TcException(Guid crids, string sMessage, params object[] rgo) : base(String.Format(sMessage, rgo))
         {
-            m_sMessage = String.Format(sMessage, rgo);
+            m_crids = crids;
+        }
+
+        public TcException(Guid crids, Exception innerException, string sMessage, params object[] rgo) : base(String.Format(sMessage, rgo), innerException)
+        {
+            m_crids = crids;
+        }
+
+        public TcException(string sMessage, params object[] rgo) : base(String.Format(sMessage, rgo))
+        {
             m_crids = Guid.Empty;
         }
 
-        public TcException()
+        public TcException(Exception innerException, string sMessage, params object[] rgo) : base(String.Format(sMessage, rgo), innerException)
         {
+            m_crids = Guid.Empty;
         }
 
-        public override string Message => m_sMessage;
+        public TcException() : base(TcErrorMessages.Unknown)  { }
 
         public Guid Crids => m_crids;
 
